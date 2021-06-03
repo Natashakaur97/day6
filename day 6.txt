@@ -1,0 +1,290 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string eName ;
+		int eId;
+		string Loc;
+		int z;
+		Console.WriteLine("enter eName: ");
+		Console.ReadLine();
+		if(z<)
+		Console.WriteLine("enter eId: ");//Employee ID should accept only numbers and must consist of 6 digits.
+		int a = Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("enter Loc: ");
+		Console.ReadLine();
+	}
+}
+
+using System;
+namespace abc
+{
+	public class sana
+	{
+		public static void Main(string[]args)
+		{
+			string[] names=new string[10];
+			int[] id=new int[10];
+			DateTime[] date=new DateTime[10];
+			string[] location=new string[10];
+			Console.WriteLine("enter the name of the employee:");
+			for(int i=0;i<2;i++)
+			{
+				names[i]=Console.ReadLine();
+			}
+			Console.WriteLine("enter the employee id of the employee:");
+			for(int i=0;i<2;i++)
+			{
+				id[i]=Convert.ToInt32(Console.ReadLine());
+				if(id[i].ToString().Length<6)
+				{
+					Console.WriteLine("please enter 6 digit number");
+				}
+				else
+				{
+					continue;
+				}
+			}
+			Console.WriteLine("enter the traveldate of the employee in ddmmyy format:");
+			for(int i=0;i<2;i++)
+			{
+				date[i]=Convert.ToDateTime((Console.ReadLine()));
+			}
+			Console.WriteLine("enter the travellocationof the employee :");
+			for(int i=0;i<2;i++)
+			{
+				location[i]=(Console.ReadLine());
+			}
+			for(int j=0;j<2;j++)
+			{
+				Console.WriteLine(names[j]+"\t\t\t"+id[j]+"\t\t\t"+date[j]+"\t\t\t"+location[j]);
+			}
+		}
+	}
+	
+}
+
+
+    
+  //1.ArrayList
+            ArrayList arrayList = new ArrayList();
+            arrayList.Add("shasha");
+            arrayList.Add("ham");
+            arrayList.Add(1);
+            arrayList.Remove(1);
+            for (int i = 0; i < arrayList.Count; i++)
+            {​​​​​​​
+                Console.WriteLine(arrayList[i]);
+           }​​​​​​​
+           //2.Hashtable
+            Hashtable hashtable = new Hashtable();
+            hashtable.Add(101,"Vikash");
+            hashtable.Add(102, "Raj");
+            hashtable.Add(103, "Sujan Singh");
+            ICollection keys = hashtable.Keys;
+            foreach (var item in keys)
+            {​​​​​​​
+                Console.WriteLine(item +":-" + hashtable[item]);
+            }​​​​​​​
+
+
+            //3Queue
+            Queue queue = new Queue();
+            queue.Enqueue("C#");
+            queue.Enqueue("PHP");
+            queue.Enqueue("JAVA");
+            queue.Dequeue();
+            Console.WriteLine(queue.Peek());
+
+
+            //4.Stack
+
+
+            Stack stack = new Stack();
+            stack.Push("C#");
+            stack.Push("PHP");
+            stack.Push("JAVA");
+            stack.Pop();
+            Console.WriteLine(stack.Peek());
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		//Dictionary<int , string> keyv1 = new Dictionary<string , int>();
+		Dictionary <string , int> keyv = new Dictionary <int , string>();
+		keyv.add(1 , "neha");
+		keyv.Remove(1);
+		
+		Console.WriteLine("Hello World");
+	}
+}
+
+
+[17:06] manoj peethala (Guest)
+    
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace ConsoleApp1
+{​​​​​​​
+    class Employee
+    {​​​​​​​
+       
+        public int EmployeeID {​​​​​​​ get; set; }​​​​​​​
+        public string EmployeeName {​​​​​​​ get; set; }​​​​​​​
+        public DateTime EmployeeTravelDate {​​​​​​​ get; set; }​​​​​​​
+        public string TravelLocation {​​​​​​​ get; set; }​​​​​​​
+    }​​​​​​​
+    class Program
+    {​​​​​​​
+        public static void Main()
+        {​​​​​​​
+            Employee employee = new Employee();
+            ValidateEmployeeInformation validate = new ValidateEmployeeInformation();
+        EnterId:
+            {​​​​​​​
+                Console.Write("Enter Your Employee ID:");
+                try
+                {​​​​​​​
+                    employee.EmployeeID = validate.checkId(Console.ReadLine());
+                }​​​​​​​
+                catch (MyException ex)
+                {​​​​​​​
+                    Console.WriteLine(ex.Message);
+                    goto EnterId;
+                }​​​​​​​
+            }​​​​​​​
+        EnterName:
+            {​​​​​​​
+                Console.Write("Enter Your Employee Name :");
+                try
+                {​​​​​​​
+                   employee.EmployeeName= validate.checkName(Console.ReadLine());
+                }​​​​​​​
+                catch (MyException ex)
+                {​​​​​​​
+                    Console.WriteLine(ex.Message);
+                    goto EnterName;
+                }​​​​​​​
+            }​​​​​​​
+        EnterDate:
+            {​​​​​​​
+                Console.Write("Enter Travel Date: ");
+                try
+                {​​​​​​​
+                    employee.EmployeeTravelDate = validate.CheckDate(Console.ReadLine());
+                }​​​​​​​
+                catch (MyException ex)
+                {​​​​​​​
+                    Console.WriteLine(ex.Message);
+                    goto EnterDate;
+                }​​​​​​​
+            }​​​​​​​
+
+
+        EnterLocation:
+            {​​​​​​​
+                Console.Write("Enter Travel Location: ");
+                try
+                {​​​​​​​
+                    employee.TravelLocation=validate.checkLocation(Console.ReadLine());
+                }​​​​​​​
+                catch (MyException ex)
+                {​​​​​​​
+                    Console.WriteLine(ex.Message);
+                    goto EnterLocation;
+                }​​​​​​​
+            }​​​​​​​
+            
+            Console.WriteLine("Ticket is booked  and below are the details");
+            Console.WriteLine("Employee Id | Employee Name | Travel Date | Location");
+            Console.WriteLine(employee.EmployeeID+ " | " + employee.EmployeeName + " | "+ employee.EmployeeTravelDate+ " | " + employee.TravelLocation);
+            Console.ReadLine();
+        }​​​​​​​
+    }​​​​​​​
+    class MyException:Exception
+    {​​​​​​​
+        public MyException(String msg) : base(msg) {​​​​​​​ }​​​​​​​
+    }​​​​​​​
+    class ValidateEmployeeInformation
+    {​​​​​​​
+        public int checkId(String employeeID)
+        {​​​​​​​
+            int result;
+            int.TryParse(employeeID, out result);
+            if (result > 0)
+            {​​​​​​​
+                if (employeeID.Length != 6)
+                {​​​​​​​
+                    throw new MyException("Not a 6 digit Employee Id ");
+                }​​​​​​​
+            }​​​​​​​
+            else
+            {​​​​​​​
+                throw new MyException(" Employee Id can contains only Digits...");
+            }​​​​​​​
+            return Convert.ToInt32(employeeID);
+        }​​​​​​​
+        public string checkName(String employeeName)
+        {​​​​​​​
+            //for (int i = 0; i < .Length; i++)
+            //{​​​​​​​
+            //    if (s[i] >= 'a' && s[i] <= 'z' || s[i] >= 'A' && s[i] <= 'Z')
+            //    {​​​​​​​
+
+
+            //    }​​​​​​​
+            //    else {​​​​​​​
+            //        throw new MyException("Employee name can contains Only Alphabets.");
+            //    }​​​​​​​
+            //}​​​​​​​
+            return employeeName;
+        }​​​​​​​
+        public string checkLocation(String location)
+        {​​​​​​​
+            if (location.ToLower() == "mumbai" || location.ToLower() == "pune")
+            {​​​​​​​
+                return location;
+            }​​​​​​​
+            else {​​​​​​​
+                throw new MyException("Location  can contains only Mumbai or Pune");
+            }​​​​​​​
+        }​​​​​​​
+        public DateTime CheckDate(string date)
+        {​​​​​​​
+            var InputDate = DateTime.ParseExact(date,"MM-dd-yyyy",CultureInfo.InvariantCulture);
+            var todaysDate = DateTime.Today;
+            if(InputDate!= todaysDate)
+            {​​​​​​​
+                throw new MyException("Please enter Today's Date only");
+            }​​​​​​​
+            else
+            {​​​​​​​
+                return InputDate;
+            }​​​​​​​
+        }​​​​​​​
+    }​​​​​​​
+}​​​​​​​
+
+
+
+
+
+
+
+
+
+
